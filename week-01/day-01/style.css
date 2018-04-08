@@ -8,6 +8,7 @@ h2{
     text-align: center;
     padding: 20 0 20 0;
     font-weight: bold;
+    font-size: 25px;
 }
 h3{
     font-size: 20px;
@@ -21,22 +22,19 @@ h4{
 p{
     text-align: left;
 }
-p.pontok{
+.pontok{
     text-align: center;
     color: grey;
     font-size: 25px;
     padding: 15px;
-}
-li{
-    list-style: none; 
-    text-align: right; 
-       
-}
+    margin: 0px;
+}   
 body{
     background-image: url("topography.png");
-    padding: 10%;
-    margin: 0px;
+    padding: 0px;
+    margin: 0px auto;
     font-style: 20px;
+    width: 100%;
 
 }
   
@@ -44,17 +42,32 @@ body{
 .menu{
     background: #333333;
     width: 100%;
-    height: 60px;
+    height: 90px;
+    
 }
 .menu ul{
-    padding: 25px;
+    margin: 0px auto;
+    
+    width: 800px;
+    padding: 2% 10% 10% 10;
+    
 }
-   .menu a{
+.menu li{
+    list-style: none; 
+    float: right;
+    margin: 5px auto;
+    padding-left: 2%;
+}
+.menu a{
     font-size: 20px;
     color: #ff0099;
-
 }
+
+
 .szoveg{
     font-style: 20px;
-    margin: 2px;
+    margin: 10px auto;
+    text-align: left;
+    width: 800px;
+    padding: 2% 10% 10% 10;
 }
