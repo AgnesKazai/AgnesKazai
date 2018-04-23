@@ -8,7 +8,7 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class XII_EverythingGoesToCenter {
+public class EverythingGoesToCenter {
     public static void mainDraw(Graphics graphics) {
 
         //SOLUTION 1: The first, longer solution.

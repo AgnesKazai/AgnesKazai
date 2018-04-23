@@ -1,21 +1,30 @@
-// Draw a green 10x10 square to the canvas' center.
+// Fill the canvas with a checkerboard pattern.
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.HashMap;
 
-import static java.awt.Frame.W_RESIZE_CURSOR;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class VI_SquareInTheCenter {
+public class CheckerBoard {
     public static void mainDraw(Graphics graphics) {
 
-        int centerX = WIDTH/2;
-        int centerY = HEIGHT/2;
+        int row;
+        int col;
+        int x, y;
 
-        graphics.setColor(Color.GREEN);
-        graphics.fillRect(centerX-5,centerY-5,10,10);
+        for (row = 0; row < WIDTH; row++) {
 
+            for (col = 0; col < HEIGHT; col++) {
+                x = col * 20;  //This is the squares size
+                y = row * 20;
+                if (((row + col) & 1) == 0) {
+                    graphics.setColor(Color.white);
+                } else {
+                    graphics.setColor(Color.black);
+                }
+                graphics.fillRect(x, y, 20, 20);
+            }
+        }
     }
 
     // Don't touch the code below
@@ -36,8 +45,6 @@ public class VI_SquareInTheCenter {
         protected void paintComponent(Graphics graphics) {
             super.paintComponent(graphics);
             mainDraw(graphics);
-
         }
     }
-
 }

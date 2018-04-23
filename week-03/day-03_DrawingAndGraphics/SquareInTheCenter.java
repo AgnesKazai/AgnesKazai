@@ -1,27 +1,22 @@
-// Draw a box that has different colored lines on each edge.
+// Draw a green 10x10 square to the canvas' center.
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
 
+import static java.awt.Frame.W_RESIZE_CURSOR;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class II_ColoredBox {
+public class SquareInTheCenter {
     public static void mainDraw(Graphics graphics) {
 
-        graphics.setColor(Color.ORANGE);
-        graphics.drawLine(60, 60, 250, 60);
+        int centerX = WIDTH/2;
+        int centerY = HEIGHT/2;
 
-        graphics.setColor(Color.MAGENTA);
-        graphics.drawLine(250, 60, 250, 250);
-
-        graphics.setColor(Color.BLUE);
-        graphics.drawLine(60, 60, 60, 250);
-
-        graphics.setColor(Color.BLACK);
-        graphics.drawLine(60, 250, 250, 250);
+        graphics.setColor(Color.GREEN);
+        graphics.fillRect(centerX-5,centerY-5,10,10);
 
     }
-
 
     // Don't touch the code below
     static int WIDTH = 320;
@@ -41,8 +36,8 @@ public class II_ColoredBox {
         protected void paintComponent(Graphics graphics) {
             super.paintComponent(graphics);
             mainDraw(graphics);
+
         }
     }
-
 
 }

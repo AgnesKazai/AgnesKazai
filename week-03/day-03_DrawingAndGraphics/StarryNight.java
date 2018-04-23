@@ -11,7 +11,7 @@ import java.util.Random;
 import static java.lang.Math.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class XIV_StarryNight {
+public class StarryNight {
     public static void mainDraw(Graphics graphics) {
 
         graphics.setColor(Color.BLACK);

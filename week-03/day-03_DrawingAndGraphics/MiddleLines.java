@@ -1,15 +1,19 @@
+// draw a red horizontal line to the canvas' middle.
+// draw a green vertical line to the canvas' middle.
+
 import javax.swing.*;
 import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class XV_PurpleSteps {
+public class MiddleLines {
     public static void mainDraw(Graphics graphics) {
 
-        for (int i = 1; i < 20; i ++) {
-            graphics.setColor(Color.MAGENTA);
-            graphics.fillRect(10*i, 10*i, 10, 10);
-        }
+        graphics.setColor(Color.red);
+        graphics.drawLine(0, HEIGHT / 2, WIDTH, HEIGHT / 2);
+
+        graphics.setColor(Color.green);
+        graphics.drawLine(WIDTH / 2, 0, WIDTH / 2, HEIGHT);
     }
 
     // Don't touch the code below

@@ -1,20 +1,25 @@
-// Draw the canvas' diagonals.
-// If it starts from the upper-left corner it should be green, otherwise it should be red.
+// Create a line drawing function that takes 2 parameters:
+// The x and y coordinates of the line's starting point
+// and draws a 50 long horizontal line from that point.
+// Draw 3 lines with that function. Use loop for that.
 
 import javax.swing.*;
 import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class III_Diagonals {
-
+public class Horizontal {
     public static void mainDraw(Graphics graphics) {
 
-        graphics.setColor(Color.GREEN);
-        graphics.drawLine(0, 0, WIDTH, HEIGHT);
+        lineDrawing(graphics, 80, 80);
 
-        graphics.setColor(Color.RED);
-        graphics.drawLine(WIDTH, 0, 0, HEIGHT);
+    }
+
+    private static void lineDrawing(Graphics graphics, int x, int y) {
+
+        for (int i = 1; i < 4; i++) {
+            graphics.drawLine(x, y * i, x + 50, y * i);
+        }
     }
 
     // Don't touch the code below

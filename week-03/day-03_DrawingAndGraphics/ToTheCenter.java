@@ -1,19 +1,24 @@
-// draw a red horizontal line to the canvas' middle.
-// draw a green vertical line to the canvas' middle.
+// Create a line drawing function that takes 2 parameters:
+// The x and y coordinates of the line's starting point
+// and draws a line from that point to the center of the canvas.
+// Draw 3 lines with that function. Use loop for that.
 
 import javax.swing.*;
 import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class I_MiddleLines {
+public class ToTheCenter {
     public static void mainDraw(Graphics graphics) {
 
-        graphics.setColor(Color.red);
-        graphics.drawLine(0, HEIGHT / 2, WIDTH, HEIGHT / 2);
+        lineDrawing(graphics, 30, 10);
 
-        graphics.setColor(Color.green);
-        graphics.drawLine(WIDTH / 2, 0, WIDTH / 2, HEIGHT);
+    }
+
+    private static void lineDrawing(Graphics graphics, int x, int y) {
+        for (int i = 1; i < 4; i++) {
+            graphics.drawLine(x * i, y, WIDTH / 2, HEIGHT / 2);  //It has one fixed point. The center of the canvas.
+        }
     }
 
     // Don't touch the code below

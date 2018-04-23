@@ -10,7 +10,7 @@ import java.awt.*;
 import java.util.Random;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class X_RainbowBoxes {
+public class RainbowBoxes {
     public static void mainDraw(Graphics graphics) {
 
         int[][] colorsOfTheRainbow = {

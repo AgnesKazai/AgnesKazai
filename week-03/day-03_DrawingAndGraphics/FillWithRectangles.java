@@ -10,7 +10,7 @@ import java.awt.*;
 import static java.awt.image.ImageObserver.WIDTH;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class VII_FillWithRectangles {
+public class FillWithRectangles {
     public static void mainDraw(Graphics graphics) {
 
         Random rnd = new Random();

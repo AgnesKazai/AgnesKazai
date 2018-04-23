@@ -1,25 +1,27 @@
-// Create a line drawing function that takes 2 parameters:
-// The x and y coordinates of the line's starting point
-// and draws a line from that point to the center of the canvas.
-// Draw 3 lines with that function. Use loop for that.
+// Draw a box that has different colored lines on each edge.
 
 import javax.swing.*;
 import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class IV_ToTheCenter {
+public class ColoredBox {
     public static void mainDraw(Graphics graphics) {
 
-        lineDrawing(graphics, 30, 10);
+        graphics.setColor(Color.ORANGE);
+        graphics.drawLine(60, 60, 250, 60);
+
+        graphics.setColor(Color.MAGENTA);
+        graphics.drawLine(250, 60, 250, 250);
+
+        graphics.setColor(Color.BLUE);
+        graphics.drawLine(60, 60, 60, 250);
+
+        graphics.setColor(Color.BLACK);
+        graphics.drawLine(60, 250, 250, 250);
 
     }
 
-    private static void lineDrawing(Graphics graphics, int x, int y) {
-        for (int i = 1; i < 4; i++) {
-            graphics.drawLine(x * i, y, WIDTH / 2, HEIGHT / 2);  //It has one fixed point. The center of the canvas.
-        }
-    }
 
     // Don't touch the code below
     static int WIDTH = 320;
@@ -41,4 +43,6 @@ public class IV_ToTheCenter {
             mainDraw(graphics);
         }
     }
+
+
 }
