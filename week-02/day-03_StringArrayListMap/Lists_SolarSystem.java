@@ -11,7 +11,7 @@ import java.util.List;
 // Create a method called putSaturn() which has list parameter and returns the correct list.
 // Expected output: "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Uranus", "Neptune", "Saturn"
 
-public class Lists_SolarSystem_I {
+public class Lists_SolarSystem {
     public static void main(String[] args) {
 
         ArrayList<String> planetList = new ArrayList<String>(Arrays.asList("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Uranus", "Neptune"));

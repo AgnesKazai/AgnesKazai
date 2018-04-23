@@ -2,7 +2,7 @@
 // Add "always takes longer than" to the StringBuilder (quote) between the words "It" and "you"
 // Using pieces of the quote variable (instead of just redefining the string)
 
-public class Strings_TakesLonger_III {
+public class Strings_TakesLonger {
 
     public static void main(String[] args) {
 

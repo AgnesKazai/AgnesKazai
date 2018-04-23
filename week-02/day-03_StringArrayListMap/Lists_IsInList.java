@@ -5,7 +5,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Lists_IsInList_VI {
+public class Lists_IsInList {
     public static void main(String[] args) {
         ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(2, 4, 6, 8, 10, 12, 14, 16));
 

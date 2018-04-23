@@ -4,7 +4,7 @@
 
 import java.util.*;
 
-public class Map_StudentCounter_II {
+public class Map_StudentCounter {
     public static void main(String[] args) {
         ArrayList<Map<String, Object>> map = new ArrayList<Map<String, Object>>();
 

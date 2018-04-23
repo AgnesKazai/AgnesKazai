@@ -5,7 +5,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Map_HeWillNever_I {
+public class Map_HeWillNever {
     public static void main(String[] args) {
 
         String out = "";

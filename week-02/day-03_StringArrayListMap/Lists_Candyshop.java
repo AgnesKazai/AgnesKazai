@@ -7,7 +7,7 @@
 
 import java.util.ArrayList;
 
-public class Lists_Candyshop_IV {
+public class Lists_Candyshop {
     public static void main(String[] args) {
 
         ArrayList<Object> arrayList = new ArrayList<Object>();

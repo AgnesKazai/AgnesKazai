@@ -5,7 +5,7 @@
 import java.util.Arrays;
 import java.util.List;
 
-public class Lists_AppendLetter_III {
+public class Lists_AppendLetter {
     public static void main(String[] args) {
         List<String> far = Arrays.asList("kuty", "macsk", "kacs", "rók", "halacsk");
 

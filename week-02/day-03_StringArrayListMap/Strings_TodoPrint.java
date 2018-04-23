@@ -9,7 +9,7 @@
 //  - Download games
 //      - Diablo
 
-public class Strings_TodoPrint_IV {
+public class Strings_TodoPrint {
     public static void main(String[] args) {
 
         String todoText = " - Buy milk\n";

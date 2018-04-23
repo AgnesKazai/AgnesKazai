@@ -5,7 +5,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Lists_ElementFinder_V {
+public class Lists_ElementFinder {
     public static void main(String[] args) {
         //ArrayList<Integer> arrayList = (ArrayList)Arrays.asList(1,2,3,4,5);
         //I commented it out because it was wrong, I rewrote that.

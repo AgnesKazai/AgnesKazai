@@ -4,7 +4,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Lists_Matchmaking_II {
+public class Lists_Matchmaking {
     public static void main(String[] args) {
 
         ArrayList<String> girls = new ArrayList<String>(Arrays.asList("Eve", "Ashley", "Bözsi", "Kat", "Jane"));
