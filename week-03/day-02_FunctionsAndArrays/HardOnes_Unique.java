@@ -6,10 +6,13 @@
 
 import java.util.Arrays;
 
-public class III_Unique_underWorking {
+public class HardOnes_Unique {
     public static void main(String[] args) {
 
-        int[] unique = {1, 11, 34, 11, 52, 61, 1, 34};
+        unique(new int[]{1, 11, 34, 11, 52, 61, 1, 34});
+    }
+
+    private static void unique(int[] unique) {
         int[] newUnique = new int[8];
         Arrays.sort(unique);
         newUnique[0] = unique[0];
@@ -19,15 +22,13 @@ public class III_Unique_underWorking {
             if (unique[i] != unique[i + 1]) {
                 newUnique[j++] = unique[i + 1];
             }
-
         }
         for (int item : newUnique
                 ) {
             if (item != 0)
                 System.out.print(item + " ");
-
         }
     }
-
 }
+
 
