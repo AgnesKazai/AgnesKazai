@@ -13,7 +13,7 @@ public class OneTwoALot {
         Scanner scanner = new Scanner(System.in);
         int number = scanner.nextInt();
 
-        if (number < 0) {
+        if (number <= 0) {
             System.out.println("Not enough");
 
         } else if (number == 1) {
