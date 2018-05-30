@@ -1,0 +1,88 @@
+-----------------------------------------------------------------------
+FROM SECOND LINK
+-----------------------------------------------------------------------
+Q1--Find the names of all students who are friends with someone named Gabriel.
+
+SELECT H1.name
+FROM Highschooler H1
+INNER JOIN Friend ON H1.ID = Friend.ID1
+INNER JOIN Highschooler H2 ON H2.ID = Friend.ID2
+WHERE H2.name = "Gabriel";
+
+RESULT
+
+Alexis
+Andrew
+Cassandra
+Jessica
+Jordan
+
+------------------------------------------------------------------------
+
+Q4--Find all students who do not appear in the Likes table (as a student who likes or is liked) and return their names and grades. Sort by grade, then by name within each grade
+
+SELECT name, grade
+FROM highschooler
+WHERE ID NOT IN(
+    SELECT ID1
+    FROM likes
+    UNION
+    SELECT ID2
+    FROM likes
+)
+ORDER BY  grade, name
+
+RESULT
+
+Jordan	9
+Tiffany	9
+Logan	12
+
+--------------------------------------------------------------------
+
+Q5--For every situation where student A likes student B, but we have no information about whom B likes (that is, B does not appear as an ID1 in the Likes table), return A and B's names and grades
+
+SELECT H1.name, H1.grade, H2.name, H2.grade
+FROM Highschooler H1
+INNER JOIN Likes
+ON H1.ID = Likes.ID1
+INNER JOIN Highschooler H2
+ON H2.ID = Likes.ID2
+WHERE (H1.ID = Likes.ID1 AND H2.ID = Likes.ID2) AND H2.ID NOT IN (
+SELECT ID1
+FROM likes
+)
+
+RESULT
+
+Alexis	11	Kris	10
+Austin	11	Jordan	12
+Brittany	10	Kris	10
+John	12	Haley	10
+
+---------------------------------------------------------------
+
+Q8--Find the difference between the number of students in the school and the number of different first names.
+
+SELECT COUNT(*) - COUNT(DISTINCT name)
+FROM highschooler
+
+RESULT
+
+2
+
+---------------------------------------------------------------
+
+Q9--Find the name and grade of all students who are liked by more than one other student. 
+
+SELECT name, grade
+FROM Highschooler
+INNER JOIN likes
+ON Highschooler.ID = likes.ID2
+GROUP BY ID
+HAVING COUNT(*) > 1
+
+RESULT
+
+Cassandra	9
+Kris	10

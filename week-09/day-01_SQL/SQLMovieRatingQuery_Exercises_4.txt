@@ -1,0 +1,20 @@
+-----------------------------------------------------------------------
+FROM FOURTH LINK
+-----------------------------------------------------------------------
+Q3--What is the average number of friends per student? (Your result should be just one number.) 
+ 
+SELECT AVG(count)
+FROM(
+SELECT COUNT(*) AS count
+FROM friend
+GROUP BY ID1
+)
+
+RESULT
+
+2.5
+
+---------------------------------------------------------------
+
+
+
