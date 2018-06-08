@@ -1,6 +1,5 @@
 package com.greenfoxacademy.bankofsimba.model;
 
-
 public class BankAccount {
     private String name;
     private double balance;
@@ -54,7 +53,7 @@ public class BankAccount {
     }
 
     public void setBalance(double balance) {
-        this.balance = balance;
+        this.balance += balance;
     }
 
     public String getAnimalType() {
@@ -71,14 +70,6 @@ public class BankAccount {
 
     public void setCurrency(String currency) {
         this.currency = currency;
-    }
-
-    public void riseAccount() {
-        if (isKing) {
-            balance += 100;
-        } else {
-            balance += 10;
-        }
     }
 }
 
