@@ -19,10 +19,13 @@ public class FoxServiceImpl implements FoxService {
         this.foxRepository = foxRepository;
     }
 
+
+    @Override
     public Boolean isExist(String foxname) {
         return foxRepository.isExist(foxname);
     }
 
+    @Override
     public Fox login(String foxname) {
         if (foxRepository.isExist(foxname)) {
             return foxRepository.findByName(foxname);
@@ -33,14 +36,17 @@ public class FoxServiceImpl implements FoxService {
         }
     }
 
+    @Override
     public Fox findOne(String name) {
         return foxRepository.findByName(name);
     }
 
+    @Override
     public List<Food> getFoodValues() {
         return foxRepository.getFoodValues();
     }
 
+    @Override
     public List<Drink> getDrinkValues() {
         return foxRepository.getDrinkValues();
     }
