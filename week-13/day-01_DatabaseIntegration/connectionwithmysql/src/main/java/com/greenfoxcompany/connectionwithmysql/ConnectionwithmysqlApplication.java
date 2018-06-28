@@ -33,7 +33,7 @@ public class ConnectionwithmysqlApplication implements CommandLineRunner {
         todoRepository.save(new Todo("daily task", false, false));
         todoRepository.save(new Todo("make the beds", true, true));
         todoRepository.save(new Todo("do the washing up", true, false));
-        todoRepository.save(new Todo("clean the bathroom and the kitchen.", true, true));
+        todoRepository.save(new Todo("clean the bathroom.", true, true));
         todoRepository.save(new Todo("sweep the floor", true, true));
         todoRepository.save(new Todo("wash the floors", true, false));
         todoRepository.save(new Todo("vacuum the carpet", false, false));

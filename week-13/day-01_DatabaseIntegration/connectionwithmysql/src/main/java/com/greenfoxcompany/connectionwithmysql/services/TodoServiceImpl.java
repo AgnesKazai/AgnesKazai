@@ -1,5 +1,6 @@
 package com.greenfoxcompany.connectionwithmysql.services;
 
+import com.greenfoxcompany.connectionwithmysql.models.Assignee;
 import com.greenfoxcompany.connectionwithmysql.models.Todo;
 import com.greenfoxcompany.connectionwithmysql.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,5 +62,36 @@ public class TodoServiceImpl implements TodoService {
     @Override
     public List<Todo> searchByTitel(String title) {
         return todoRepository.findByTitleContaining(title);
+    }
+
+    @Override
+    public List<Todo> getTodosByAssignee(Assignee assignee) {
+        return todoRepository.findTodosByAssignee(assignee);
+    }
+
+    @Override
+    public List<Todo> searchByDueDate(String dueDate) {
+        return todoRepository.findByDueDate(dueDate);
+    }
+
+    @Override
+    public List<Todo> searchByAssigneeName(String assignee) {
+        return todoRepository.findByAssigneeName(assignee);
+    }
+
+    @Override
+    public List<Todo> search(String search) {
+        List<Todo> searchResDueDate = todoRepository.findByDueDate(search);
+        List<Todo> searchResAssignee = todoRepository.findByAssigneeName(search);
+        List<Todo> searchResTitle = todoRepository.findByTitleContaining(search);
+        if (!searchResDueDate.isEmpty()) {
+            return searchResDueDate;
+        } else if (!searchResAssignee.isEmpty()) {
+            return searchResAssignee;
+        } else if (!searchResTitle.isEmpty()) {
+            return searchResTitle;
+        } else {
+            return getAllTodos();
+        }
     }
 }

@@ -23,13 +23,14 @@
     <title>TODOS FOR TODAY</title>
 </head>
 <body>
+
 <h1 align="center">TODOS FOR TODAY</h1>
 <h2 th:align="center"><a th:href="@{/add}">Add new todo</a></h2>
-<h2 th:align="center"><a th:href="@{/assignees}">List of Assignees</a></h2>
+<h2 th:align="center"><a th:href="@{/assigneelist}">List of Assignees</a></h2>
 
 <form th:action="@{/search}" method="get" th:align="center">
     <div class="input-group mb-2">
-        <input type="text" style="width:40%;" name="search" placeholder="Search your todo..."/>
+        <input type="search" style="width:40%;" name="search" placeholder="Search your todo..."/>
         <input type="submit" class="btn btn-light" value="Submit"/>
     </div>
 </form>
@@ -42,6 +43,9 @@
         <th>ACTION</th>
         <th>DONE</th>
         <th>URGENT</th>
+        <th>ASSIGNEE</th>
+        <th>CREATION DATE</th>
+        <th>DUE DATE</th>
         <th>DELETE</th>
         <th>EDIT</th>
 
@@ -51,8 +55,12 @@
         <td th:text="*{title}"></td>
         <td th:text="*{done}"></td>
         <td th:text="*{urgent}"></td>
+        <td th:if="*{assignee != null}"><a th:href="@{/assignee/} + *{assignee.id}" th:text="*{assignee.name}"></a></td>
+        <td th:unless="*{assignee != null}" th:text="''">..</td>
+        <td th:text="*{creationDate}"></td>
+        <td th:text="*{dueDate}"></td>
         <td>
-            <form action="#" th:action="@{/delete/} + *{id}" method="post">
+            <form action="#" th:action="@{/delete/} + *{id}" method="POST">
                 <input class="btn btn-warning" th:value="delete" type="submit"/>
             </form>
         </td>

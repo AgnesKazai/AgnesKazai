@@ -1,14 +1,7 @@
 package com.greenfoxcompany.connectionwithmysql.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
+import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 public class Todo {
@@ -20,14 +13,22 @@ public class Todo {
     private String title;
     private Boolean done;
     private Boolean urgent;
+    private String creationDate;
+    private String dueDate;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "assignee_id")
+    private Assignee assignee;
 
     public Todo() {
+        this.creationDate = String.valueOf(LocalDate.now());
     }
 
     public Todo(String title, Boolean done, Boolean urgent) {
         this.title = title;
         this.done = done;
         this.urgent = urgent;
+        this.creationDate = String.valueOf(LocalDate.now());
     }
 
     public Long getId() {
@@ -60,5 +61,29 @@ public class Todo {
 
     public void setUrgent(Boolean urgent) {
         this.urgent = urgent;
+    }
+
+    public Assignee getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(Assignee assignee) {
+        this.assignee = assignee;
+    }
+
+    public String getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(String creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public String getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(String dueDate) {
+        this.dueDate = dueDate;
     }
 }
