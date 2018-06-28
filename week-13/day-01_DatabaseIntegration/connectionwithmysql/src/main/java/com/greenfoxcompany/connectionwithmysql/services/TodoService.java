@@ -1,5 +1,6 @@
 package com.greenfoxcompany.connectionwithmysql.services;
 
+import com.greenfoxcompany.connectionwithmysql.models.Assignee;
 import com.greenfoxcompany.connectionwithmysql.models.Todo;
 
 import java.util.List;
@@ -20,4 +21,6 @@ public interface TodoService {
     void updateTodo(Todo todo);
 
     List<Todo> searchByTitel(String title);
+
+    List<Todo> getTodosByAssignee (Assignee assignee);
 }

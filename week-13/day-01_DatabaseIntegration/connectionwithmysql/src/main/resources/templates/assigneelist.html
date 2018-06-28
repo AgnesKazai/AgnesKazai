@@ -35,7 +35,7 @@
     </tr>
     <tr th:each="assignee : ${assigneelist}" th:object="${assignee}">
         <td th:text="*{id}"></td>
-        <td th:text="*{name}"></td>
+        <td><a th:href="@{/assignee/} + *{id}" th:text="*{name}"></a></td>
         <td th:text="*{email}"></td>
         <td>
             <form action="#" th:action="@{/editassignee/} + *{id}" method="GET">

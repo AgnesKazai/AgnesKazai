@@ -2,8 +2,6 @@ package com.greenfoxcompany.connectionwithmysql.models;
 
 import javax.persistence.*;
 
-
-
 @Entity
 public class Todo {
 

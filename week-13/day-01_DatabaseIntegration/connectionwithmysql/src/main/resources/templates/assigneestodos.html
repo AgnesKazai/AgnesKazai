@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Todo</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        th {
+            background-color: lightgrey;
+        }
+
+        td, th {
+            border: groove;
+            text-align: left;
+        }
+    </style>
+    <title>Assignee's Todos</title>
+</head>
+<body>
+<h1 align="center">ASSIGNEE'S TODOS</h1>
+<table align="center">
+    <tr align="center">
+        <th>ID</th>
+        <th>ACTION</th>
+        <th>DONE</th>
+        <th>URGENT</th>
+        <th>ASSIGNEE</th>
+
+    </tr>
+    <tr th:each="assigneetodo : ${ListOfAssigneeTodos}" th:object="${assigneetodo}">
+        <td th:text="*{id}"></td>
+        <td th:text="*{title}"></td>
+        <td th:text="*{done}"></td>
+        <td th:text="*{urgent}"></td>
+        <td th:text="*{assignee.name}"></td>
+    </tr>
+</table>
+</body>
+</html>

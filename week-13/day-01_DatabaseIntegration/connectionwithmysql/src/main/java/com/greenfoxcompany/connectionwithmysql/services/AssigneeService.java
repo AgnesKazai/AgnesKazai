@@ -1,6 +1,7 @@
 package com.greenfoxcompany.connectionwithmysql.services;
 
 import com.greenfoxcompany.connectionwithmysql.models.Assignee;
+import com.greenfoxcompany.connectionwithmysql.models.Todo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,4 +19,5 @@ public interface AssigneeService {
     void deleteAssignee(Long id);
 
     Assignee save(Assignee assignee);
+
 }

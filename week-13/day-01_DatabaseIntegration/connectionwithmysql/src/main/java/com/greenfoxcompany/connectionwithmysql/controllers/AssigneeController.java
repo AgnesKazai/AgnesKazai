@@ -1,7 +1,8 @@
 package com.greenfoxcompany.connectionwithmysql.controllers;
 
 import com.greenfoxcompany.connectionwithmysql.models.Assignee;
-import com.greenfoxcompany.connectionwithmysql.services.AssigneeService;
+import com.greenfoxcompany.connectionwithmysql.services.AssigneeServiceImpl;
+import com.greenfoxcompany.connectionwithmysql.services.TodoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,11 +16,14 @@ import java.util.Optional;
 @Controller
 public class AssigneeController {
 
-    private AssigneeService assigneeService;
+    private AssigneeServiceImpl assigneeService;
+
+    private TodoServiceImpl todoService;
 
     @Autowired
-    public AssigneeController(AssigneeService assigneeService) {
+    public AssigneeController(AssigneeServiceImpl assigneeService, TodoServiceImpl todoService) {
         this.assigneeService = assigneeService;
+        this.todoService = todoService;
     }
 
     @GetMapping("/assigneelist")
@@ -53,11 +57,17 @@ public class AssigneeController {
         model.addAttribute("assignee", new Assignee());
         return "createassignee";
     }
+
     @PostMapping("/createassignee")
     public String createAssignee(@ModelAttribute Assignee assignee) {
-       assigneeService.save(assignee);
+        assigneeService.save(assignee);
         return "redirect:/assigneelist";
     }
 
-
+    @GetMapping(value = {"assignee/{id}"})
+    public String getAssigneeTodos(@PathVariable(value = "id") Long id, Model model) {
+        Optional<Assignee> assignee = assigneeService.getAssigneeById(id);
+        model.addAttribute("ListOfAssigneeTodos", todoService.getTodosByAssignee(assignee.get()));
+        return "assigneestodos";
+    }
 }

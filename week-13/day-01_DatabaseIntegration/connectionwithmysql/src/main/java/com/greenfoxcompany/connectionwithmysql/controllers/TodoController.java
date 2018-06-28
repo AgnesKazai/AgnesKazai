@@ -69,9 +69,9 @@ public class TodoController {
                              @ModelAttribute Todo todo) {
         todo.setId(id);
         todoService.updateTodo(todo);
-        Optional<Todo> needtoedittodo = todoService.getTodoById(id);
-        Optional<Assignee> willbeassigned = assigneeService.getAssigneeById(Long.parseLong(req.getParameter("assignee")));
-        needtoedittodo.get().setAssignee(willbeassigned.get());
+        Optional<Todo> needToEditTodo = todoService.getTodoById(id);
+        Optional<Assignee> willBeAssigned = assigneeService.getAssigneeById(Long.parseLong(req.getParameter("assignee")));
+        needToEditTodo.get().setAssignee(willBeAssigned.get());
 //        needtoedittodo.setTitle(req.getParameter("settitle"));
 //        needtoedittodo.setCreationTime(req.getParameter("setdate"));
 //        needtoedittodo.setDuedate(req.getParameter("setdue"));
@@ -81,6 +81,7 @@ public class TodoController {
 //        toDoServiceDB.save(needtoedittodo);
 //        model.addAttribute("todo", toDoServiceDB.getToDo(id));
         return "redirect:/list";
+
     }
 
     @GetMapping("/search")
