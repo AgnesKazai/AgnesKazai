@@ -1,20 +1,24 @@
 package com.greenfoxcompany.connectionwithmysql.models;
 
-import javax.persistence.*;
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Assignee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
     private String email;
-
-    @OneToMany(mappedBy = "assignee",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Todo> todos;
 
     public Assignee() {
     }
@@ -46,13 +50,5 @@ public class Assignee {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public List<Todo> getTodos() {
-        return todos;
-    }
-
-    public void setTodos(List<Todo> todos) {
-        this.todos = todos;
     }
 }

@@ -1,6 +1,5 @@
 package com.greenfoxcompany.connectionwithmysql.services;
 
-import com.greenfoxcompany.connectionwithmysql.models.Assignee;
 import com.greenfoxcompany.connectionwithmysql.models.Todo;
 import com.greenfoxcompany.connectionwithmysql.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,11 +62,4 @@ public class TodoServiceImpl implements TodoService {
     public List<Todo> searchByTitel(String title) {
         return todoRepository.findByTitleContaining(title);
     }
-
-    @Override
-    public List<Todo> getTodosByAssignee(Assignee assignee) {
-        return todoRepository.findTodosByAssignee(assignee);
-    }
-
-
 }

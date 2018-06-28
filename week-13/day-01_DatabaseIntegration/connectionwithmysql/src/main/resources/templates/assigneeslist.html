@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Exercise #</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        th {
+            background-color: lightgrey;
+        }
+
+        td, th {
+            border: groove;
+            text-align: left;
+        }
+    </style>
+    <title>ASSIGNEES</title>
+</head>
+<body>
+<h1 align="center">LIST OF ASSIGNEES</h1>
+<table align="center">
+    <tr align="center">
+        <th>ID</th>
+        <th>NAME</th>
+        <th>EMAIL</th>
+    </tr>
+    <tr th:each="assignee : ${assigneeslist}" th:object="${assignee}">
+        <td th:text="*{id}"></td>
+        <td th:text="*{name}"></td>
+        <td th:text="*{email}"></td>
+        <td>
+            <form action="#" th:action="@{/editassigneesname} + *{id}" method="get">
+                <input class="btn btn-warning" th:value="edit" type="submit"/>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+

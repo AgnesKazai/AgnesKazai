@@ -1,9 +1,7 @@
 package com.greenfoxcompany.connectionwithmysql.services;
 
 import com.greenfoxcompany.connectionwithmysql.models.Assignee;
-import com.greenfoxcompany.connectionwithmysql.models.Todo;
 import com.greenfoxcompany.connectionwithmysql.repositories.AssigneeRepository;
-import com.greenfoxcompany.connectionwithmysql.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,12 +14,9 @@ public class AssigneeServiceImpl implements AssigneeService {
 
     private AssigneeRepository assigneeRepository;
 
-    private TodoRepository todoRepository;
-
     @Autowired
-    public AssigneeServiceImpl(AssigneeRepository assigneeRepository, TodoRepository todoRepository) {
+    public AssigneeServiceImpl(AssigneeRepository assigneeRepository) {
         this.assigneeRepository = assigneeRepository;
-        this.todoRepository = todoRepository;
     }
 
     @Override
@@ -39,16 +34,6 @@ public class AssigneeServiceImpl implements AssigneeService {
     @Override
     public void updateAssignee(Assignee assignee) {
         assigneeRepository.save(assignee);
-    }
-
-    @Override
-    public void deleteAssignee(Long id) {
-        assigneeRepository.deleteById(id);
-    }
-
-    @Override
-    public Assignee save(Assignee assignee) {
-        return assigneeRepository.save(assignee);
     }
 
 
