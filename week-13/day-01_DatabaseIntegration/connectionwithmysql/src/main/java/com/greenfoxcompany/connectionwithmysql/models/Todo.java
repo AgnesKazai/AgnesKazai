@@ -1,13 +1,7 @@
 package com.greenfoxcompany.connectionwithmysql.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import javax.persistence.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 
 @Entity
@@ -20,6 +14,10 @@ public class Todo {
     private String title;
     private Boolean done;
     private Boolean urgent;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "assignee_id")
+    private Assignee assignee;
 
     public Todo() {
     }
@@ -60,5 +58,13 @@ public class Todo {
 
     public void setUrgent(Boolean urgent) {
         this.urgent = urgent;
+    }
+
+    public Assignee getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(Assignee assignee) {
+        this.assignee = assignee;
     }
 }

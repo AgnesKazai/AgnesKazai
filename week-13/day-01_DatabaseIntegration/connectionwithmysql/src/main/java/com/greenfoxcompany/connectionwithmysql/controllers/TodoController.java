@@ -1,7 +1,11 @@
 package com.greenfoxcompany.connectionwithmysql.controllers;
 
 import com.greenfoxcompany.connectionwithmysql.models.Todo;
+import com.greenfoxcompany.connectionwithmysql.services.AssigneeService;
+import com.greenfoxcompany.connectionwithmysql.models.*;
+import com.greenfoxcompany.connectionwithmysql.services.AssigneeServiceImpl;
 import com.greenfoxcompany.connectionwithmysql.services.TodoService;
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +18,12 @@ public class TodoController {
 
     private TodoService todoService;
 
+    private AssigneeService assigneeService;
+
     @Autowired
-    public TodoController(TodoService todoService) {
+    public TodoController(TodoService todoService, AssigneeService assigneeService) {
         this.todoService = todoService;
+        this.assigneeService = assigneeService;
     }
 
     @GetMapping(value = {"/", "/list"})
@@ -53,18 +60,31 @@ public class TodoController {
     public String editTodo(@PathVariable(value = "id") Long id, Model model) {
         Optional<Todo> todo = todoService.getTodoById(id);
         model.addAttribute("edittodo", todo.get());
+        model.addAttribute("assigneelist", assigneeService.getAllAssignees());
         return "editpage";
     }
 
     @PostMapping("/update/{id}")
-    public String updateTodo(@PathVariable(value = "id") Long id, @ModelAttribute Todo todo) {
+    public String updateTodo(@PathVariable(value = "id") Long id, HttpServletRequest req,
+                             @ModelAttribute Todo todo) {
         todo.setId(id);
         todoService.updateTodo(todo);
+        Optional<Todo> needtoedittodo = todoService.getTodoById(id);
+        Optional<Assignee> willbeassigned = assigneeService.getAssigneeById(Long.parseLong(req.getParameter("assignee")));
+        needtoedittodo.get().setAssignee(willbeassigned.get());
+//        needtoedittodo.setTitle(req.getParameter("settitle"));
+//        needtoedittodo.setCreationTime(req.getParameter("setdate"));
+//        needtoedittodo.setDuedate(req.getParameter("setdue"));
+//        needtoedittodo.setDescription(req.getParameter("setdescription"));
+//        needtoedittodo.setDone(Boolean.parseBoolean(req.getParameter("setdone")));
+//        needtoedittodo.setUrgent(Boolean.parseBoolean(req.getParameter("seturgent")));
+//        toDoServiceDB.save(needtoedittodo);
+//        model.addAttribute("todo", toDoServiceDB.getToDo(id));
         return "redirect:/list";
     }
 
     @GetMapping("/search")
-    public String searchByTitle(@RequestParam(value = "search") String title, Model model ) {
+    public String searchByTitle(@RequestParam(value = "search") String title, Model model) {
         model.addAttribute("todoslist", todoService.searchByTitel(title));
         return "todoslist";
     }

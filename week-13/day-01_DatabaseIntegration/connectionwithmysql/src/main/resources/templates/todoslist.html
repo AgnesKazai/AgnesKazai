@@ -42,6 +42,7 @@
         <th>ACTION</th>
         <th>DONE</th>
         <th>URGENT</th>
+        <th>ASSIGNEE</th>
         <th>DELETE</th>
         <th>EDIT</th>
 
@@ -51,6 +52,8 @@
         <td th:text="*{title}"></td>
         <td th:text="*{done}"></td>
         <td th:text="*{urgent}"></td>
+        <td th:if="*{assignee != null}" th:text="*{assignee.name}">..</td>
+        <td th:unless="*{assignee != null}" th:text="'empty'">..</td>
         <td>
             <form action="#" th:action="@{/delete/} + *{id}" method="POST">
                 <input class="btn btn-warning" th:value="delete" type="submit"/>

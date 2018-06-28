@@ -8,9 +8,14 @@ import java.util.Optional;
 
 @Service
 public interface AssigneeService {
-     List<Assignee> getAllAssignees();
-     Optional<Assignee> getAssigneeById(Long id);
-     void updateAssignee(Assignee assignee);
-     void deleteAssignee(Long id);
-     Assignee save(Assignee assignee);
+
+    List<Assignee> getAllAssignees();
+
+    Optional<Assignee> getAssigneeById(Long id);
+
+    void updateAssignee(Assignee assignee);
+
+    void deleteAssignee(Long id);
+
+    Assignee save(Assignee assignee);
 }
