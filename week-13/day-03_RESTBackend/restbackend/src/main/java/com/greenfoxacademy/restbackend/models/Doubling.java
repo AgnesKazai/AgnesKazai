@@ -1,5 +1,8 @@
 package com.greenfoxacademy.restbackend.models;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Doubling {
     private Integer received;
     private Integer result;

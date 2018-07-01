@@ -1,5 +1,8 @@
 package com.greenfoxacademy.restbackend.models;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Greeter {
 
     private String welcome_message;
