@@ -2,25 +2,24 @@ package com.greenfoxacademy.restbackend.models;
 
 import org.springframework.stereotype.Component;
 
-import javax.validation.constraints.NotNull;
-
 @Component
 public class DoUntilValue {
 
-    private Integer until;
+    private int until;
 
     public DoUntilValue() {
     }
 
-    public DoUntilValue(Integer until) {
+    public DoUntilValue(int until) {
         this.until = until;
     }
 
-    public Integer getUntil() {
+    public int getUntil() {
         return until;
     }
 
-    public void setUntil(Integer until) {
+    public void setUntil(int until) {
         this.until = until;
     }
 }
+
