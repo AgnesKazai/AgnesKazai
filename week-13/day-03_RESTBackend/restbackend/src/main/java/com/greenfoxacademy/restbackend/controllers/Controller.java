@@ -25,4 +25,11 @@ public class Controller {
         return doublingService.getResult(recieved);
     }
 
+    @GetMapping("/greeter")
+    public Object getGreeting(@RequestParam(value = "name", required = false) String name,
+                              @RequestParam(value = "title", required = false) String title) {
+        return greetingService.getWelcomeMessage(name,title);
+    }
+
+
 }
