@@ -1,14 +1,12 @@
 package com.greenfoxacademy.restbackend.controllers;
 
 
-import com.greenfoxacademy.restbackend.services.AppendAServiceImpl;
-import com.greenfoxacademy.restbackend.services.DoublingServiceImpl;
-import com.greenfoxacademy.restbackend.services.GreetingServiceImpl;
+import com.greenfoxacademy.restbackend.models.ArrayHandler;
+import com.greenfoxacademy.restbackend.models.DoUntilValue;
+import com.greenfoxacademy.restbackend.models.ErrorMessage;
+import com.greenfoxacademy.restbackend.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class Controller {
@@ -16,12 +14,14 @@ public class Controller {
     private DoublingServiceImpl doublingService;
     private GreetingServiceImpl greetingService;
     private AppendAServiceImpl appendAService;
+    private DoUntilServiceImpl doUntilService;
 
     @Autowired
-    public Controller(DoublingServiceImpl doublingService, GreetingServiceImpl greetingService, AppendAServiceImpl appendAService) {
+    public Controller(DoublingServiceImpl doublingService, GreetingServiceImpl greetingService, AppendAServiceImpl appendAService, DoUntilServiceImpl doUntilService) {
         this.doublingService = doublingService;
         this.greetingService = greetingService;
         this.appendAService = appendAService;
+        this.doUntilService = doUntilService;
     }
 
     @GetMapping("/doubling")
@@ -39,4 +39,19 @@ public class Controller {
     public Object getGreeting(@PathVariable(value = "appendable") String appendable) {
         return appendAService.getAppendA(appendable);
     }
+
+    @PostMapping("/dountil/{what}")
+    public Object duUntil(@PathVariable(value = "what") String what, @RequestBody DoUntilValue doUntilValue) {
+        if (doUntilValue.getUntil() == null) {
+            return new ErrorMessage("Parameter is required");
+        } else {
+            return doUntilService.checkWhatIsTheOperation(what, doUntilValue.getUntil());
+        }
+    }
+    @PostMapping ("/arrays")
+    public Object arrayHandler(@RequestBody ArrayHandler arrayHandlerJson){
+
+        return null;
+    }
+
 }
