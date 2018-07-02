@@ -85,4 +85,16 @@ public class Controller {
     public Object getLogs() {
         return new LogJson(logService.getAllLogs());
     }
+
+    @PostMapping("/sith")
+    public Object sith(@RequestBody Sith sithJson) {
+        String endpoint = "/sith";
+        String data = sithJson.getText();
+        logService.saveLog(new Log(endpoint, data));
+        if (sithJson.getText() != null) {
+            return new SithReverse(sithJson.getText());
+        }
+        return new ErrorMessage("Feed me some text you have to, padawan young you are. Hmmm.");
+    }
+
 }
