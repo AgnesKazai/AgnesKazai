@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fox Club Tamagochi</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+
+<h1>Registration</h1>
+<form action="#" th:action="@{/register}" method="POST">
+    <p>
+        <label for="username">User name:</label>
+        <input type="text" id="username" placeholder="User name" name="username" />
+    </p>
+    <p>
+        <label for="password">Password:</label>
+        <input type="text" id="password"  placeholder="Password" name="psw" />
+    </p>
+    <p>
+        <label for="passwordConf">Password:</label>
+        <input type="text" id="passwordConf" placeholder="Repeat your password" name="pswrepeat" />
+    </p>
+    <p>
+        <input type="submit" value="Registration">
+    </p>
+</form>
+</body>
+</html>
