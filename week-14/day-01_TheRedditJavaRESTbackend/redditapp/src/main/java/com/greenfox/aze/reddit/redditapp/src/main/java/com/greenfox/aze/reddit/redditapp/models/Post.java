@@ -15,7 +15,7 @@ public class Post {
     private LocalDateTime timestamp;
     private Long score = 0L;
     private String owner;
-    private String vote;
+    private int vote;
 
 
     public Post() {
@@ -30,7 +30,7 @@ public class Post {
         this.vote = vote;
     }
 
-    public Post(String title, String url, LocalDateTime timestamp, Long score, String owner, String vote) {
+    public Post(String title, String url, LocalDateTime timestamp, Long score, String owner, int vote) {
         this.title = title;
         this.url = url;
         this.timestamp = LocalDateTime.now();
@@ -87,11 +87,11 @@ public class Post {
         this.owner = owner;
     }
 
-    public String getVote() {
+    public int getVote() {
         return vote;
     }
 
-    public void setVote(String vote) {
+    public void setVote(int vote) {
         this.vote = vote;
     }
 }
