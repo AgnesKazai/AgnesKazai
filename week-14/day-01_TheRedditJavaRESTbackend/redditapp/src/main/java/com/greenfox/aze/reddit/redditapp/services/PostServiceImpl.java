@@ -58,6 +58,7 @@ public class PostServiceImpl implements PostService {
         Post post = postRepository.findById(id).get();
         post.setTitle(postToUpdate.getTitle());
         post.setUrl(postToUpdate.getUrl());
+	post.setTimestamp(LocalDateTime.now());
         postRepository.save(post);
     }
 }
