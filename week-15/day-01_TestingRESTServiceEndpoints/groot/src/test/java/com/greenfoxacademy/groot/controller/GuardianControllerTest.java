@@ -28,23 +28,22 @@ public class GuardianControllerTest {
 
     @Test
     public void recievedParam_Succesfull() throws Exception {
-        mockMvc.perform(get("/groot?")
-                .contentType(MediaType.APPLICATION_JSON)
-                .param("recieved", "somemessage"))
+        mockMvc.perform(get("/groot")
+                .contentType(contentType)
+                .param("message", "somemessage"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(contentType))
-                .andExpect(jsonPath("$.received", is("somemessage")))
+                .andExpect(jsonPath("$.recieved", is("somemessage")))
                 .andExpect(jsonPath("$.translated", is("I am Groot!")));
     }
 
     @Test
-    public void GrootEndpoint_withoutParameter() throws Exception{
+    public void GrootEndpoint_withoutParameter() throws Exception {
         mockMvc.perform(get("/groot")
                 .contentType(contentType))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().contentType(contentType))
                 .andExpect(jsonPath("$.error", is("I am Groot!")));
-
     }
 
 }
