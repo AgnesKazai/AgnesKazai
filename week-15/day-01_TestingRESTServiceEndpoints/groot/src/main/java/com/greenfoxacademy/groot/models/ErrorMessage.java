@@ -1,5 +1,6 @@
 package com.greenfoxacademy.groot.models;
 
+@Component
 public class ErrorMessage extends RestResponse {
 
     private String error;
