@@ -44,4 +44,18 @@ public class YonduArrowControllerTest {
                 .andExpect(jsonPath("$.speed", is(10.0)));
 
     }
+    @Test
+    public void YonduArrow_withTimeIsZero() throws Exception {
+        MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
+        params.set("distance", "100.0");
+        params.set("time", "0");
+
+        mockMvc.perform(get("/yondu")
+                .contentType(contentType)
+                .params(params))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().contentType(contentType))
+                .andExpect(jsonPath("$.error", is("Time cannot be zero!")));
+
+    }
 }
