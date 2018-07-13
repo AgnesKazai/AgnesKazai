@@ -1,4 +1,4 @@
-# AgnesKazai 's repo
+# Agnes Kazai 's repo
 
 Fork git-lesson-repository Manipulation:
 https://github.com/AgnesKazai/git-lesson-repository.git
