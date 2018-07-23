@@ -52,4 +52,4 @@ Week 13	Spring SQL advanced and stacktraces,
 	
 Week 14	Reddit project - Peer to Peer Chat application
 
-Week 14	REST Tests
+Week 15	REST Tests
